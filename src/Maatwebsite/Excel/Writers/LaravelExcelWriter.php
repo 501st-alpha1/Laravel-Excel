@@ -259,6 +259,9 @@ class LaravelExcelWriter {
         // Render the file
         $this->_render();
 
+        // Hack to allow custom file extensions
+        $this->ext = Config::get('excel::export.ext', $ext);
+
         // Download the file
         $this->_download($headers);
     }
